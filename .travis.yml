@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+
+before_install:
+  - docker build -t pshekar997/docker -f Dockerfile.dev
+
+script:
+  -docker run pshekar997/docker npm run test -- --coverage
